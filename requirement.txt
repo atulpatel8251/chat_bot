@@ -1,5 +1,6 @@
 streamlit
 google.generativeai
+genai
 googletrans 
 requests
 bs4
