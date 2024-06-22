@@ -1,13 +1,16 @@
 import streamlit as st
-import google.generativeai as genai
+from google.generativeai import genai
 from googletrans import Translator
 import requests
 from bs4 import BeautifulSoup
 import os
 import base64
 
-# Set environment variable for protocol buffers
-os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+# Set environment variable for Google API key
+os.environ["GOOGLE_API_KEY"] = "your_actual_api_key_here"
+
+# Google Generative AI configuration
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Streamlit UI
 st.markdown("# ChatBot with URL Fetching 🔗")
@@ -75,10 +78,6 @@ label[data-testid="stText"] {
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Google Generative AI configuration
-GOOGLE_API_KEY = "AIzaSyDMyEt4qEhKkrUiLrgTcpCt52Rwgk-vIxo"
-genai.configure(api_key=GOOGLE_API_KEY)
-
 # Translator setup
 translator = Translator()
 
@@ -98,13 +97,18 @@ def fetch_web_data(url):
 # Function to get AI response
 def get_gemini_response(query, text_content):
     context = f"Text content: {text_content}\n\nQuestion: {query}"
-    response = genai.generate_text(prompt=context)
-    return response.result
+    # Dummy response generation (replace with actual logic)
+    response = {"result": "Dummy AI response"}
+    return response["result"]
 
 # Function to translate text to Hindi
 def translate_to_hindi(text):
-    translation = translator.translate(text, src='en', dest='hi')
-    return translation.text
+    try:
+        translation = translator.translate(text, src='en', dest='hi')
+        return translation.text
+    except Exception as e:
+        st.error(f"Translation failed: {str(e)}")
+        return "Translation Error"
 
 # Function to generate a link for downloading a binary file
 def get_binary_file_downloader_html(content, button_text, file_name):
