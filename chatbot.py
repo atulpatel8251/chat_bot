@@ -10,7 +10,7 @@ import base64
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 
 # Set environment variable for Google API key
-os.environ["GOOGLE_API_KEY"] = "your_actual_api_key_here"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyBN4Ut3vk4i4Dmsr8aNHoBZBN8kLJ3cgRY"
 
 # Google Generative AI configuration
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
