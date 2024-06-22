@@ -1,7 +1,7 @@
 streamlit==1.36.0
 google.generativeai==0.7.0
 genai==2.1.0
-list
+
 requests==2.32.3
 beautifulsoup4==4.12.3
 python-dotenv==1.0.0
