@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 import os
 import base64
 
+# Set environment variable for protocol buffers
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
 # Set environment variable for Google API key
 os.environ["GOOGLE_API_KEY"] = "your_actual_api_key_here"
 
@@ -97,9 +100,8 @@ def fetch_web_data(url):
 # Function to get AI response
 def get_gemini_response(query, text_content):
     context = f"Text content: {text_content}\n\nQuestion: {query}"
-    # Dummy response generation (replace with actual logic)
-    response = {"result": "Dummy AI response"}
-    return response["result"]
+    response = genai.generate_text(prompt=context)
+    return response.result
 
 # Function to translate text to Hindi
 def translate_to_hindi(text):
