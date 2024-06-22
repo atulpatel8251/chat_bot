@@ -4,6 +4,6 @@ genai
 googletrans 
 requests
 bs4
-BeautifulSoup
+beautifulsoup4
 os
 base64
