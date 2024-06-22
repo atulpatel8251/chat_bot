@@ -1,1 +1,8 @@
-
+streamlit
+google.generativeai
+googletrans 
+requests
+bs4
+BeautifulSoup
+os
+base64
