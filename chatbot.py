@@ -15,7 +15,7 @@ load_dotenv()
 
 # Google Generative AI configuration
 
-#GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Translator setup
